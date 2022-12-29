@@ -24,6 +24,8 @@ requirements:
 test:
   requires:
     - pytest <4
+    - nbconvert
+    - ipykernel
   imports:
     - {{ name }}
   commands:
