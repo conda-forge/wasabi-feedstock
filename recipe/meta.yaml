@@ -1,14 +1,12 @@
-{% set name = "wasabi" %}
 {% set version = "1.1.3" %}
-{% set sha256sum = "4bb3008f003809db0c3e28b4daf20906ea871a2bb43f9914197d540f4f2e0878" %}
 
 package:
-  name: {{ name|lower }}
+  name: wasabi
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256sum }}
+  url: https://pypi.org/packages/source/w/wasabi/wasabi-{{ version }}.tar.gz
+  sha256: 4bb3008f003809db0c3e28b4daf20906ea871a2bb43f9914197d540f4f2e0878
 
 build:
   number: 0
@@ -41,16 +39,13 @@ test:
     {% set tests_to_skip = tests_to_skip + " or test_jupyter " %}   # [ppc64le]
     - python -m pytest --tb=native --pyargs {{ name }} -k "not ({{ tests_to_skip }})"
 
-
 about:
-  home: http://github.com/ines/wasabi
+  home: https://github.com/explosion/wasabi
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: A lightweight console printing and formatting toolkit
-
-  dev_url: https://github.com/ines/wasabi
-  doc_url: https://github.com/ines/wasabi#-api
+  dev_url: https://github.com/explosion/wasabi
 
 extra:
   recipe-maintainers:
